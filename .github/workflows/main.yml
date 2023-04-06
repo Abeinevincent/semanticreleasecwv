@@ -42,7 +42,8 @@ jobs:
     needs: [quality]
     permissions:
       packages: write
-      contents: write 
+      contents: write
+      issues: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
