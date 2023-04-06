@@ -40,6 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{github.ref == 'refs/heads/master'}}
     needs: [quality]
+    permissions:
+      packages: write
+      contents: write 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -50,6 +53,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
+
+
           
       - run: npm ci
       - run: npm run semantic-release
