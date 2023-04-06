@@ -13,16 +13,3 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 export const Thing: FC<Props> = ({ children }) => {
   return <div>{children || `the snozzberries taste like snozzberries`}</div>;
 };
-
-export interface InputProps {
-  type: string;
-  width: string;
-}
-
-export const Input = ({ type, width }: InputProps) => {
-  return (
-    <div>
-      <input type={type} style={{ width: width }} />
-    </div>
-  );
-};
