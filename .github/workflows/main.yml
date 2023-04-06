@@ -43,12 +43,14 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          
       - run: npm ci
       - run: npm run semantic-release
         env:
